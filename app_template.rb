@@ -1,4 +1,4 @@
-generate :controller, "welcome index"
+generate 'controller', "welcome index"
 route "root to: 'welcome\#index'"
 
 if yes? "Devise?"
