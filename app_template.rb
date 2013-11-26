@@ -24,3 +24,4 @@ run 'rake db:migrate'
   the_path = "lib/templates/erb/scaffold/#{the_action}.html.erb"
   get "https://raw.github.com/rldaggie/templates/master/#{the_path}", the_path
 end
+get "https://raw.github.com/rldaggie/templates/master/app/views/shared/_errors.html.erb", 'app/views/shared/_errors.html.erb'

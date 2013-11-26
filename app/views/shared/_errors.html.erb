@@ -1,0 +1,11 @@
+<% if the_instance.errors.any? %>
+  <div class="alert alert-danger">
+    <p><%= pluralize(the_instance.errors.count, "error") %> prohibited this from being saved:</p>
+
+    <ul>
+    <% the_instance.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
