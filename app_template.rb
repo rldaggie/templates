@@ -5,7 +5,7 @@ remove_file 'app/helpers/application_helper.rb'
 get 'https://raw.github.com/rldaggie/templates/master/application_helper.rb', 'app/helpers/application_helper.rb'
 
 # Set app name in en.yml
-gsub_file 'foobar', '  hello: "Hello world"', "  app_name: '#{@app_name}'"
+gsub_file 'config/locales/en.yml', '  hello: "Hello world"', "  app_name: '#{@app_name}'"
 
 # Root controller
 generate 'controller', "welcome index"
