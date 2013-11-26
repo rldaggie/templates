@@ -1,0 +1,19 @@
+<div class="page-header">
+  <div class="btn-group pull-right">
+    <%%= link_to 'Edit', edit_<%= singular_table_name %>_path(@<%= singular_table_name %>), class: 'btn btn-warning' %>
+    <%%= link_to 'Back', <%= index_helper %>_path, class: 'btn btn-info' %>
+  </div><!--// .btn-group pull-right -->
+  
+  <h2>Details</h2>
+</div><!--// .page-header -->
+
+<table class="table table-striped table-hover table-bordered">
+  <tbody>
+    <% attributes.reject(&:password_digest?).each do |attribute| -%>
+    <tr>
+      <th><%= attribute.human_name %></th>
+      <td><%%= @<%= singular_table_name %>.<%= attribute.name %> %></td>
+    </tr>
+    <% end -%>
+  </tbody>
+</table>

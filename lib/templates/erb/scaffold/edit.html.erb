@@ -1,0 +1,10 @@
+<div class="page-header">
+  <div class="btn-group pull-right">
+    <%%= link_to 'Show', @<%= singular_table_name %>, class: 'btn btn-info' %>
+    <%%= link_to 'Back', <%= index_helper %>_path, class: 'btn btn-primary' %>
+  </div><!--// .btn-group pull-right -->
+  
+  <h2>Editing <%= singular_table_name %></h2>
+</div><!--// .page-header -->
+
+<%%= render 'form' %>

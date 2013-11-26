@@ -18,3 +18,9 @@ generate 'devise:install'
 generate 'devise:views'
 generate 'devise user'
 run 'rake db:migrate'
+
+# Add scaffold html
+['_form', 'edit', 'index', 'new', 'show'].each do |the_action|
+  the_path = "lib/templates/erb/scaffold/#{the_action}.html.erb"
+  get "https://raw.github.com/rldaggie/templates/master/#{the_path}", the_path
+end
