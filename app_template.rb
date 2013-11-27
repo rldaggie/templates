@@ -24,7 +24,7 @@ if yes? "Devise?"
 
   # Change Devise Views
   ['passwords/new', 'passwords/edit', 'registrations/new', 'registrations/edit', 'sessions/new', 'shared/_links'].each do |the_devise|
-    the_path = "app/views/devise/#{the_action}.html.erb"
+    the_path = "app/views/devise/#{the_devise}.html.erb"
     remove_file the_path
     get "#{the_url}#{the_path}", the_path
   end
