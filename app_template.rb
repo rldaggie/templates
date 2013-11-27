@@ -14,19 +14,21 @@ generate 'controller', "welcome index"
 route "root 'welcome\#index'"
 
 # Devise
-gem 'devise'
-run 'bundle install'
-generate 'devise:install'
-generate 'devise:views'
-generate 'devise user'
-run 'rake db:migrate'
+if yes? "Devise?"
+  gem 'devise'
+  run 'bundle install'
+  generate 'devise:install'
+  generate 'devise:views'
+  generate 'devise user'
+  run 'rake db:migrate'
 
-# Change Devise Views
-['passwords/new', 'passwords/edit', 'registrations/new', 'registrations/edit', 'sessions/new', 'shared/_links'].each do |the_devise|
-  the_path = "app/views/devise/#{the_action}.html.erb"
-  get "#{the_url}#{the_path}", the_path
+  # Change Devise Views
+  ['passwords/new', 'passwords/edit', 'registrations/new', 'registrations/edit', 'sessions/new', 'shared/_links'].each do |the_devise|
+    the_path = "app/views/devise/#{the_action}.html.erb"
+    remove_file the_path
+    get "#{the_url}#{the_path}", the_path
+  end
 end
-
 
 # Add scaffold html
 ['_form', 'edit', 'index', 'new', 'show'].each do |the_action|
