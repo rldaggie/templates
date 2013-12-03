@@ -13,6 +13,22 @@ gsub_file 'config/locales/en.yml', '  hello: "Hello world"', "  app_name: '#{@ap
 generate 'controller', "welcome index"
 route "root 'welcome\#index'"
 
+# Test
+gem 'pg'
+gem_group :development, :test do
+  gem 'sqlite3'
+  gem 'cucumber-rails', :require => false
+  gem 'database_cleaner'
+  gem "rspec-rails"
+  gem 'shoulda-matchers'
+  gem 'factory_girl_rails'
+end
+
+run 'bundle install'
+generate 'cucumber:install'
+generate 'rspec:install'
+empty_directory 'spec/fixtures'
+
 # Devise
 if yes? "Devise?"
   gem 'devise'
@@ -29,21 +45,6 @@ if yes? "Devise?"
     get "#{the_url}#{the_path}", the_path
   end
 end
-
-# Test
-gem 'pg'
-gem_group :development, :test do
-  gem 'sqlite3'
-  gem 'cucumber-rails', :require => false
-  gem 'database_cleaner'
-  gem "rspec-rails"
-  gem 'shoulda-matchers'
-  gem 'factory_girl_rails'
-end
-
-generate 'cucumber:install'
-generate 'rspec:install'
-empty_directory 'spec/fixtures'
 
 application do
   "config.generators do |g|"
