@@ -30,6 +30,33 @@ if yes? "Devise?"
   end
 end
 
+# Test
+gem 'pg'
+gem_group :development, :test do
+  gem 'sqlite3'
+  gem 'cucumber-rails', :require => false
+  gem 'database_cleaner'
+  gem "rspec-rails"
+  gem 'shoulda-matchers'
+  gem 'factory_girl_rails'
+end
+
+generate 'cucumber:install'
+generate 'rspec:install'
+
+application do
+  "config.generators do |g|"
+  "  g.test_framework  :rspec, :fixture => true"
+  "  g.fixture_replacement :factory_girl, :dir=>'spec/factories'"
+  "end"
+end
+
+application do
+  "config.action_view.field_error_proc = Proc.new { |html_tag, instance|" 
+  "  '<div class=\"has-error\">#{html_tag}</div>'.html_safe"
+  "}"
+end
+
 # Add scaffold html
 ['_form', 'edit', 'index', 'new', 'show'].each do |the_action|
   the_path = "lib/templates/erb/scaffold/#{the_action}.html.erb"
