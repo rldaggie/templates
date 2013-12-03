@@ -43,6 +43,7 @@ end
 
 generate 'cucumber:install'
 generate 'rspec:install'
+empty_directory 'spec/fixtures'
 
 application do
   "config.generators do |g|"
