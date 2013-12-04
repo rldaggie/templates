@@ -45,12 +45,6 @@ if yes? "Devise?"
   end
 end
 
-application do
-  "config.action_view.field_error_proc = Proc.new { |html_tag, instance|" 
-  "  '<div class=\"has-error\">#{html_tag}</div>'.html_safe"
-  "}"
-end
-
 # Add scaffold html
 ['_form', 'edit', 'index', 'new', 'show'].each do |the_action|
   the_path = "lib/templates/erb/scaffold/#{the_action}.html.erb"
