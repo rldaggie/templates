@@ -27,7 +27,6 @@ end
 run 'bundle install'
 generate 'cucumber:install'
 generate 'rspec:install'
-empty_directory 'spec/fixtures'
 
 # Devise
 if yes? "Devise?"
@@ -44,13 +43,6 @@ if yes? "Devise?"
     remove_file the_path
     get "#{the_url}#{the_path}", the_path
   end
-end
-
-application do
-  "config.generators do |g|"
-  "  g.test_framework  :rspec, :fixture => true"
-  "  g.fixture_replacement :factory_girl, :dir=>'spec/factories'"
-  "end"
 end
 
 application do
