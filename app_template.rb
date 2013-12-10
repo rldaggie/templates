@@ -43,6 +43,7 @@ if yes? "Devise?"
     remove_file the_path
     get "#{the_url}#{the_path}", the_path
   end
+  get "#{the_url}app/helpers/devise_helper.rb", 'app/helpers/devise_helper.rb'
 end
 
 # Add scaffold html
