@@ -1,5 +1,8 @@
 the_url = "https://raw.github.com/rldaggie/templates/master/"
 
+# SSL
+uncomment_lines 'config/environments/production.rb', 'config.force_ssl = true'
+
 # Twitter Bootstrap
 remove_file 'app/views/layouts/application.html.erb'
 get "#{the_url}app/views/layouts/application.html.erb", 'app/views/layouts/application.html.erb'
